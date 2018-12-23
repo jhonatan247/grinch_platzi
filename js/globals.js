@@ -80,6 +80,7 @@ var downR = false;
 
 var onlyOne = false;
 var treePos = 0;
+var playerPos = 1;
 
 var cursors;
 

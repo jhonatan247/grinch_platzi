@@ -68,12 +68,17 @@ var play = {
 		if(positionPlayerX[2] != player.position.x && !downR){
 			downR = true;
 			player.position.x += deltaX;
+			playerPos += 1;
+			playerPos %= 3;
 		}
     },
 	left: function(){  
 		if(positionPlayerX[0] != player.position.x && !downL){
 			downL = true;
 			player.position.x -= deltaX;
+			playerPos -= 1;
+			if(playerPos < 0)
+				playerPos = 2;
 		}
     },
      
@@ -113,6 +118,10 @@ var play = {
 				while(rnd2 == treePos){
 					rnd2 = Math.floor((Math.random() * 3));
 				}
+			}else{
+				while(playerPos != rnd2){
+					rnd2 = Math.floor((Math.random() * 3));
+				}
 			}
 
 			treePos = rnd2;
@@ -122,7 +131,12 @@ var play = {
 			if(!onlyOne){
 				rnd2 = (treePos + 1)%3;
 			}else{
-				rnd2 =treePos;
+				if(treePos == 1&& playerPos != 1){
+					rnd2 = (playerPos + 1)%3;
+				}else{
+					rnd2 =treePos;
+				}
+				
 			}
 			var tree1 = trees.create(positionTreeX[rnd2], -300 -stars.y, 'tree');
 			var tree2 = trees.create(positionTreeX[(rnd2+1)%3], -300 -stars.y, 'tree');
@@ -133,7 +147,11 @@ var play = {
 			if(!onlyOne){
 				rnd2 = (treePos + 2)%3;
 			}else{
-				rnd2 =treePos;
+				if(treePos == 1&& playerPos != 1){
+					rnd2 = (playerPos + 2)%3;
+				}else{
+					rnd2 =treePos;
+				}
 			}
 			var tree1 = trees.create(positionTreeX[rnd2], -300 -stars.y, 'tree');
 			var tree2 = trees.create(positionTreeX[(rnd2+2)%3], -300 -stars.y, 'tree');
@@ -144,7 +162,11 @@ var play = {
 			if(!onlyOne){
 				rnd2 = (treePos + 1)%3;
 			}else{
-				rnd2 =treePos;
+				if(treePos == 1&& playerPos != 1){
+					rnd2 = (playerPos + 1)%3;
+				}else{
+					rnd2 =treePos;
+				}
 			}
 			var tree1 = trees.create(positionTreeX[rnd2], -300 -stars.y, 'tree');
 			var tree2 = trees.create(positionTreeX[(rnd2+1)%3], -300 -stars.y, 'tree');
@@ -157,7 +179,11 @@ var play = {
 			if(!onlyOne){
 				rnd2 = (treePos + 2)%3;
 			}else{
-				rnd2 =treePos;
+				if(treePos == 1 && playerPos != 1){
+					rnd2 = (playerPos + 2)%3;
+				}else{
+					rnd2 =treePos;
+				}
 			}
 			var tree1 = trees.create(positionTreeX[rnd2], -300 -stars.y, 'tree');
 			var tree2 = trees.create(positionTreeX[(rnd2+2)%3], -300 -stars.y, 'tree');
@@ -171,6 +197,10 @@ var play = {
 				while(rnd2 == treePos){
 					rnd2 = Math.floor((Math.random() * 3));
 				}
+			}else{
+				while(playerPos != rnd2){
+					rnd2 = Math.floor((Math.random() * 3));
+				}
 			}
 			treePos = rnd2;
 			var tree1 = trees.create(positionTreeX[rnd2], -300 -stars.y, 'tree');
@@ -180,6 +210,10 @@ var play = {
 		}else if(rnd < 0.5){
 			if(!onlyOne){
 				while(rnd2 == treePos){
+					rnd2 = Math.floor((Math.random() * 3));
+				}
+			}else{
+				while(playerPos != rnd2){
 					rnd2 = Math.floor((Math.random() * 3));
 				}
 			}
