@@ -6,6 +6,7 @@ game.state.add('play', play);
 game.state.add('menu', menu);
 game.state.add('score', score);
 game.state.add('about', about);
+game.state.add('controls', controls);
 
 var index =0;
 var main = {
