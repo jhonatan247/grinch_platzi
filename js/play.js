@@ -20,7 +20,7 @@ var play = {
 		player =  game.add.sprite(playerX, playerY, "player");
 		game.physics.enable(player, Phaser.Physics.ARCADE);
 	    player.body.collideWorldBounds = true;
-		player.body.setSize(50, 250, 65, 80);
+		player.body.setSize(50, 100, 65, 100);
 
 
 		
@@ -42,7 +42,7 @@ var play = {
 		stars.y += velocity;
 		trees.y += velocity;
 		count += velocity;
-		if(count>= 400){
+		if(count>= 500){
 			count  = 0;
 			this.createLine();
 		}
